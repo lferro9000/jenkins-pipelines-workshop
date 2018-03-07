@@ -1,4 +1,4 @@
-@Library('php-lint')
+@Library('php-lint') _
 
 pipeline {
   agent any
