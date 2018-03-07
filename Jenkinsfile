@@ -6,7 +6,13 @@ pipeline {
   stages {
     stage ("Checkout") {
       steps {
-        checkout()
+        checkout(
+                        [$class: 'GitSCM', branches: [[name: '*/plugin']],
+                         doGenerateSubmoduleConfigurations: false,
+                         extensions: [],
+                         submoduleCfg: [],
+                         userRemoteConfigs: [[url: 'https://github.com/lferro9000/jenkins-pipelines-workshop']]]
+        )
       }
     }
     stage("Composer") {
